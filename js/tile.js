@@ -1,10 +1,13 @@
 class Tile {
-  constructor() {
+  constructor(width) {
+    this.width = width;
     this.div;
     this.create();
   }
   create() {
     this.div = document.createElement('div');
+    this.div.style.width = this.width + '%';
+    this.div.style.height = this.width + '%';
     this.div.className = 'tile empty';
   }
 
