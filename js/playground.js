@@ -11,6 +11,7 @@ class Playground {
     this.generate();
   }
 
+
   generate() {
     var tileWidth = 100 / this.width;
     for (var i = 0; i < (this.width * this.width); i++) {
@@ -19,7 +20,9 @@ class Playground {
       this.targetDiv.appendChild(tile.div);
     }
     this.setSize();
-    this.snake = new Snake(5, this.tiles);
+
+    this.snake = new Snake(5, this.tiles, this);
+
     this.generateFood();
   }
 
