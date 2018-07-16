@@ -19,11 +19,21 @@ class Playground {
       this.targetDiv.appendChild(tile.div);
     }
     this.setSize();
+    this.snake = new Snake(5, this.tiles);
+    this.generateFood();
   }
 
   setSize() {
     var style = window.getComputedStyle(this.targetDiv);
     // computedStyle kiszámolja az aktuális, tényleges értéket dobja ki, itt magasságnak be lehet állítani az aktuális szélességet
     this.targetDiv.style.height = style.width;
+  }
+
+  generateFood() {
+    var filteredTiles = this.tiles.filter( function (item) {
+      return item.type === 'empty';
+    });
+    var random = Math.floor(Math.random() * filteredTiles.length);
+    filteredTiles[random].setFood();
   }
 }
